@@ -6,15 +6,15 @@ const duelistSchema = new mongoose.Schema({
         const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return regex.test(email) ? true : "Invalid Email Address";
     }},
-    thoughts: {
-        type: [Schema.Types.ObjectId],
+    thoughts: [{
+        type: Schema.Types.ObjectId,
         ref: "Thought"
-    },
-    rivals: {
-        type: [Schema.Types.ObjectId],
+    }],
+    rivals: [{
+        type: Schema.Types.ObjectId,
         ref: "Duelist",
         virtuals: true
-    }
+    }]
 });
 
 duelistSchema.virtual('rivalCount').get(function() {
