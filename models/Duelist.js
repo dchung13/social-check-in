@@ -7,12 +7,13 @@ const duelistSchema = new mongoose.Schema({
         return regex.test(email) ? true : "Invalid Email Address";
     }},
     thoughts: {
-        type: [mongoose.Schema.Types.ObjectId],
+        type: [Schema.Types.ObjectId],
         ref: "Thought"
     },
     rivals: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: "Duelist"
+        type: [Schema.Types.ObjectId],
+        ref: "Duelist",
+        virtuals: true
     }
 });
 
